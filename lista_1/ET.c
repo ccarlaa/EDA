@@ -7,7 +7,6 @@ int main() {
     char entry[61];
     int cited = 0;
     int comparation = -1;
-    int print_name = 0;
     int ret = 0;
 
     while(1) {
@@ -20,11 +19,11 @@ int main() {
         comparation = strcmp(entry, planet);
 
         if(comparation == 0) {
-            print_name = 1;
+            cited = 1;
         }
     }
 
-    if(print_name) {
+    if(cited) {
         printf("%s", name);
     }
     else {
