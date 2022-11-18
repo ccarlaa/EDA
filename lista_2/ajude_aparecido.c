@@ -1,19 +1,27 @@
 #include <stdio.h>
 
 void main() {
-    int val_um, val_dois, val_tres;
+    int num_friends = 0;
     int result = 0;
+    int soma = 0;
 
-    scanf("%d %d %d", &val_um, &val_dois, &val_tres);
+    scanf("%d", &num_friends);
+
+    for(int i = 0; i < num_friends; i++) {
+        int value = 0;
+
+        scanf("%d", &value);
+
+        soma += value;
+    }
+
     scanf("%d", &result);
 
-    int soma = val_um + val_dois + val_tres;
-
-    if(soma == result) {
+    if(result == soma) {
         printf("Acertou\n");
         return;
     }
 
     printf("Errou\n");
 
-}
+} 
