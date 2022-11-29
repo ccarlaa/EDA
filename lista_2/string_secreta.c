@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+void main() {
     int number = 0;
 
     while(scanf("%x", &number) != EOF) {
