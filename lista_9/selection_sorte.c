@@ -10,23 +10,25 @@ int main() {
 
 
     for(int i = 0; i < counter; i++) {
-        int position_one = i;
-        int position_two = i;
+        int smaller = i;
 
-        for(int j = i + 1; j <= counter; j++) {
-            if(vector[i] > vector[j]) {
-                position_two = j;
+        for(int j = i + 1; j < counter; j++) {
+            if(vector[smaller] > vector[j]) {
+                smaller = j;
             }
         } 
 
-        int aux = vector[position_two];
-        vector[position_two] = vector[position_one];
-        vector[position_one] = aux;
+        if(i != smaller) {
+            int aux = vector[smaller];
+            vector[smaller] = vector[i];
+            vector[i] = aux;
+        }
     }
 
     for(int i = 0; i < counter; i++) {
-        printf("%d", vector[i]);
+        printf("%d ", vector[i]);
     }
-
+    
     return 0;
 }
+
