@@ -35,9 +35,6 @@ int main() {
 
 
     for(int i = 1; i < counter; i++) {
-        int position_one = i;
-        int position_two = i;
-
         for(int j = 0; j < counter; j++) {
             if(vector[j] > vector[j + 1]) {
                 int aux = vector[j];
