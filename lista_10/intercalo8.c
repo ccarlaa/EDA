@@ -1,14 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void merge_sort(int *vector, int start, int end) {
-    int middle = 0;
+void merge(int *vector, int start, int end, int middle) {
     int i, j, k, aux[end + 1];
 
 
-    if(start < end) {
-        middle = (start + end) / 2;
-        merge_sort(vector, start, middle);
-        merge_sort(vector, middle + 1, end);
+    // if(start < end) {
+        // merge_sort(vector, start, middle);
+        // merge_sort(vector, middle + 1, end);
 
         //merge
         i = start;
@@ -44,25 +43,34 @@ void merge_sort(int *vector, int start, int end) {
             vector[i] = aux[aux_counter];
             aux_counter++;
         }
-    }
-}
-
-void print_vector(int *vector, int counter) {
-    for(int i = 0; i < counter; i++) {
-        printf("%d ", vector[i]);
-    }
+    // }
 }
 
 int main() {
-    int vector[100000];
-    int counter = 0;
+    int lenght = 0;
+    int new_length = 0;
+    int vector[16 * (int)1e5 + (int)6.66];
 
-    while(scanf("%d", &vector[counter]) != EOF) {
-        counter++;
+    for(int j = 0; j < 8; j++) {
+
+        scanf("%d", &lenght);
+
+        if(lenght == 0) {
+            continue;
+        }
+
+        for(int i = 0; i < lenght; i++) {
+            scanf("%d", &vector[i + new_length]);
+        }
+
+        merge(vector, 0, new_length + lenght - 1, new_length - 1);
+        new_length += lenght;
     }
 
-    merge_sort(vector, 0, counter - 1);
-    print_vector(vector, counter);
-
+    for(int i = 0; i < new_length; i++) {
+        printf("%d ", vector[i]);
+    }
+    
+    printf("\n");
     return 0;
 }
